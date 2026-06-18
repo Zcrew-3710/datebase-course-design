@@ -1,0 +1,23 @@
+# 服务器配置
+server:
+  port: 8080
+  servlet:
+    context-path: /zufang
+
+# 数据库连接（SQL Server）
+spring:
+  datasource:
+    driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    url: jdbc:sqlserver://localhost:1433;DatabaseName=RentalManagementSystem;encrypt=true;trustServerCertificate=true
+    username: sa # 替换为你的SQL Server用户名
+    password: 123456 # 替换为你的SQL Server密码
+  jackson:
+    time-zone: GMT+8
+
+# 原生MyBatis配置
+mybatis:
+  mapper-locations: classpath:mapper/**/*.xml
+  type-aliases-package: com.zufang.renthouse.entity
+  configuration:
+    map-underscore-to-camel-case: true # 下划线转驼峰
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl # 打印SQL日志（开发用）
